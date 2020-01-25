@@ -2,25 +2,24 @@
 const grailedData = require('../grailedData.json');
 
 // item sales calc
-function getTotalSold(){
+function getTotalSold(grailedData){
   let totalEuro = 0;
-
-  const shippingPrice = 30;
-  const fees = 10/100;
-  const dollarToEuro = 0.9;
+  const shippingPrice = grailedData["settings"]["averageShippingPriceEuro"];
+  const fees = (grailedData["settings"]["grailed"]+grailedData["settings"]["paypal"])/100;
+  const dollarToEuro = grailedData["settings"]["averageDollarToEuro"];
 
   const grailedSales = grailedData["itemSold"];
   // get brut gain from grailedSales
   for (let item in grailedSales){
     const totalPaypalDollar = grailedSales[item]["soldFor"] - grailedSales[item]["soldFor"]*fees;
     const totalPaypalEuro = totalPaypalDollar*dollarToEuro;
-    totalEuro += (totalPaypalEuro-shippingPrice);
+    totalEuro += Math.floor(totalPaypalEuro -shippingPrice);
   }
   console.log(totalEuro);
   return totalEuro;
 }
 
-getTotalSold();
+getTotalSold(grailedData);
 
 
 // function exports
