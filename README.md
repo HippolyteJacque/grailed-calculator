@@ -2,7 +2,7 @@
 
 ## Welcome to this grailed revenue calculator
 
-1. run npm install
+1. run command: npm install
 
 2. then you need to create your json data and setting file named grailedData.json in the current folder
 the grailedData.json file expect this structure
@@ -27,4 +27,4 @@ change settings values, add your items like so:
   }
 }
 
-3. run the program with node index.js
+3. run command: node index.js
