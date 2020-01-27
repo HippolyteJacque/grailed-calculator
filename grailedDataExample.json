@@ -2,8 +2,8 @@
   "settings": {
     "paypal": 000,
     "grailed": 000,
-    "averageShippingPriceEuro": 000,
-    "averageDollarToEuro": 000
+    "averageShippingPrice": 000,
+    "convert": 000
   },
   "itemSold": {
     "name of the item1": {
